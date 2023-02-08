@@ -19,3 +19,4 @@ public class Matrix
         System.out.println(Matrix.average(a));
     }
 }
+C:\Users\mihaj\Desktop\Programi\Napredno Programiranje\NaprednoJanuari
