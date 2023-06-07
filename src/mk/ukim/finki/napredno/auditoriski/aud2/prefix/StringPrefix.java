@@ -16,5 +16,6 @@ public class StringPrefix
         System.out.println(StringPrefix.isPrefix("test", "testing"));
         System.out.println(isPrefix("test", "apple"));
         System.out.println(isPrefix("test", "tesla")); //test
+        System.out.println(isPrefix("test", "tesla")); //test
     }
 }
