@@ -11,11 +11,20 @@ public class StringPrefix
         return IntStream.range(0, first.length())
                 .allMatch(i -> first.charAt(i) == second.charAt(i));
     }
-    public static void main(String[] args)
-    {
-        System.out.println(StringPrefix.isPrefix("test", "testing"));
-        System.out.println(isPrefix("test", "apple"));
-        System.out.println(isPrefix("test", "tesla")); //test
-        System.out.println(isPrefix("test", "tesla")); //test
+    public static void testIsPrefix(String first, String second) {
+        boolean isPrefix = isPrefix(first, second);
+
+        System.out.println("Is \"" + first + "\" a prefix of \"" + second + "\"? " + isPrefix);
+    }
+    public static void main(String[] args) {
+        testIsPrefix("hello", "helloworld"); // true
+        testIsPrefix("world", "helloworld"); // false
+        testIsPrefix("abc", "abcdef"); // true
+        testIsPrefix("xyz", "abc"); // false
+        testIsPrefix("programming", "programmers"); // true
+        testIsPrefix("java", "javascript"); // false
+        testIsPrefix("", "test"); // true
+        testIsPrefix("test", ""); // false
+        testIsPrefix("", ""); // true
     }
 }
