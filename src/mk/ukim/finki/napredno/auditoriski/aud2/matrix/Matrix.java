@@ -14,8 +14,30 @@ public class Matrix
 
     public static void main(String[] args)
     {
-        double[][] a = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        System.out.println(Matrix.sum(a));
-        System.out.println(Matrix.average(a)); //
-    } //test
+        double[][] matrix1 = {
+                {1.5, 2.3, 3.1},
+                {4.2, 5.7, 6.9},
+                {7.4, 8.1, 9.6}
+        };
+
+        double sum1 = sum(matrix1);
+        double average1 = average(matrix1);
+
+        System.out.println("Matrix 1:");
+        System.out.println("Sum: " + sum1);
+        System.out.println("Average: " + average1);
+
+        double[][] matrix2 = {
+                {2.5, 3.7},
+                {5.1, 6.3},
+                {8.9, 9.2}
+        };
+
+        double sum2 = sum(matrix2);
+        double average2 = average(matrix2);
+
+        System.out.println("\nMatrix 2:");
+        System.out.println("Sum: " + sum2);
+        System.out.println("Average: " + average2);
+    }
 }
