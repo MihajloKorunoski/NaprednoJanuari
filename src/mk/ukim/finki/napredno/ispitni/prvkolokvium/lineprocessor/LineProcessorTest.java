@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.lineprocessor;
+package mk.ukim.finki.napredno.ispitni.prvkolokvium.lineprocessor;
 
 public class LineProcessorTest {
     public static void main(String[] args) {

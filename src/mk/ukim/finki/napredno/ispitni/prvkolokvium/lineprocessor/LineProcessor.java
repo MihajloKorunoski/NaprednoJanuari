@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.lineprocessor;
+package mk.ukim.finki.napredno.ispitni.prvkolokvium.lineprocessor;
 
 import java.io.*;
 import java.util.ArrayList;

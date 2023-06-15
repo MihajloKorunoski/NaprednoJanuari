@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.weightcontainer;
+package mk.ukim.finki.napredno.ispitni.prvkolokvium.weightcontainer;
 
 import java.util.List;
 import java.util.Scanner;

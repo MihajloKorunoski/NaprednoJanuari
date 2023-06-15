@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.weightcontainer;
+package mk.ukim.finki.napredno.ispitni.prvkolokvium.weightcontainer;
 
 public class WeightableDouble implements Weightable{
     double weight;
