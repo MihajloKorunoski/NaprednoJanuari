@@ -14,10 +14,10 @@ double getLongitude()`
 `public double averageValue()`
 ја враќа средната вредност од пресметаните средни вредности за сите измерени вредности на сензорите.
 
-`public double averageDistanceValue(IGeo location, double distane, long timeFrom, long timeTo)`
+`public double averageDistanceValue(IGeo location, double distance, long timeFrom, long timeTo)`
 ја враќа средната вредност од пресметаните средни вредности за сите измерени вредности на сензорите што се направени во временскиот период од `timeFrom` до `timeTo` (`{timeFrom, timeTo}`) на растојание `distance` од локацијата `location`. Сите сензори кои немаат измерени вредности во периодот од `timeFrom` до `timeTo` (`{timeFrom, timeTo}`)  не влегуваат во пресметката за средна вредност
 
-`public List<ExtremeValue> extremeValues(long timeFrom, longtimeTo)`
+`public List<ExtremeValue> extremeValues(long timeFrom, longtime To)`
 ги враќа екстремните прочитани вредности (минимална и максимална вредност, заедно со `sensorID`) што се направени во временскиот период од `timeFrom` до `timeTo` (`{timeFrom, timeTo}`)
 
 Дополнително, доколку при читањето на измерените сензорски вредности се прочита негативна вредност, потребно е да биде фрлен исклучок од класата `BadMeasureException` во кој ќе се пренесе информација за сензорот и временскиот момент на погрешно внесената вредност. Исто така потребно е да биде генериран и исклучок од класата `BadSensorException` доколку за сензорот не е запишана ниту една вредност (да се пренесе информација за сензорот за кој не се внесени вредности).

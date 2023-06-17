@@ -55,7 +55,14 @@ public class Sensor {
         return new Sensor(sensorID, location, measurementList);
     }
 
+    public double getAverageValue(){
+        return measurements.stream()
+                .mapToDouble(measurements -> measurements.value)
+                .average()
+                .orElse(0.0);
+    }
+
+}
 //    public double averageValue(){
 //        return 0.0;
 //    }
-}

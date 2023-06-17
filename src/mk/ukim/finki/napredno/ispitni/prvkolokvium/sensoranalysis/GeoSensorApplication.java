@@ -1,5 +1,6 @@
 package mk.ukim.finki.napredno.ispitni.prvkolokvium.sensoranalysis;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -7,6 +8,11 @@ import java.util.stream.Collectors;
 public class GeoSensorApplication {
 
     List<Sensor> sensors;
+
+    public GeoSensorApplication() {
+        sensors = new ArrayList<>();
+    }
+
     public void readGeoSensors(Scanner s) throws BadSensorException, BadMeasureException {
         while(s.hasNextLine()){
             String line = s.nextLine();
@@ -20,15 +26,19 @@ public class GeoSensorApplication {
                 .collect(Collectors.toList());
     }
 
-    public boolean averageValue() {
-        return false;
+    public double averageValue(){
+        return sensors.stream()
+                .mapToDouble(Sensor::getAverageValue)
+                .average()
+                .orElse(0.0);
     }
 
-    public boolean averageDistanceValue(IGeo iGeo, double dis, long t1, long t2) {
-        return false;
+    public double averageDistanceValue(IGeo location, double distance, long timeFrom, long timeTo) {
+        return 0.0;
     }
 
-    public boolean extremeValues(long t1, long t2) {
-        return false;
+    public List<ExtremeValue> extremeValues(long timeFrom, long timeTo) {
+
+        return new ArrayList<>();
     }
 }
