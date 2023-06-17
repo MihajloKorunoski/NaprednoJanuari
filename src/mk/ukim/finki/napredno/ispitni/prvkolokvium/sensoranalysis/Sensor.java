@@ -55,7 +55,7 @@ public class Sensor {
         return new Sensor(sensorID, location, measurementList);
     }
 
-    public double averageValue(){
-        return 0.0;
-    }
+//    public double averageValue(){
+//        return 0.0;
+//    }
 }
