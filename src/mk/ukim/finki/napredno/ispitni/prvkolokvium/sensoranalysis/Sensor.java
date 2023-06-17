@@ -2,6 +2,7 @@ package mk.ukim.finki.napredno.ispitni.prvkolokvium.sensoranalysis;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Sensor {
     String sensorID;
@@ -55,14 +56,18 @@ public class Sensor {
         return new Sensor(sensorID, location, measurementList);
     }
 
-    public double getAverageValue(){
+    public double getAverageValue() {
         return measurements.stream()
                 .mapToDouble(measurements -> measurements.value)
                 .average()
                 .orElse(0.0);
     }
 
+    public List<Measurement> getMeasurementsInRange(long timeFrom, long timeTo) {
+        return measurements.stream()
+                .filter(measurement -> measurement.timestamp >= timeFrom
+                        && measurement.timestamp <= timeTo)
+                .collect(Collectors.toList());
+    }
 }
-//    public double averageValue(){
-//        return 0.0;
-//    }
+

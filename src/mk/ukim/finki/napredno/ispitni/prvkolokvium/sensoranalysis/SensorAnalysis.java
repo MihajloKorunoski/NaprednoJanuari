@@ -47,9 +47,7 @@ public class SensorAnalysis {
             }, dis, t1, t2));
 
             System.out.println(app.extremeValues(t1, t2));
-        } catch (BadSensorException e) {
-            System.out.println(e.getMessage());
-        } catch (BadMeasureException e) {
+        } catch (BadSensorException | BadMeasureException e) {
             System.out.println(e.getMessage());
         } finally {
             s.close();

@@ -14,7 +14,7 @@ public class GeoSensorApplication {
     }
 
     public void readGeoSensors(Scanner s) throws BadSensorException, BadMeasureException {
-        while(s.hasNextLine()){
+        while (s.hasNextLine()) {
             String line = s.nextLine();
             sensors.add(Sensor.createSensor(line));
         }
@@ -26,7 +26,7 @@ public class GeoSensorApplication {
                 .collect(Collectors.toList());
     }
 
-    public double averageValue(){
+    public double averageValue() {
         return sensors.stream()
                 .mapToDouble(Sensor::getAverageValue)
                 .average()
@@ -34,11 +34,30 @@ public class GeoSensorApplication {
     }
 
     public double averageDistanceValue(IGeo location, double distance, long timeFrom, long timeTo) {
-        return 0.0;
+        return sensors.stream()
+                .filter(sensor -> sensor.location.distance(location) <= distance)
+                .flatMap(sensor -> sensor.getMeasurementsInRange(timeFrom, timeTo).stream())
+                .mapToDouble(measurement -> measurement.value)
+                .average()
+                .orElse(0.0);
     }
 
     public List<ExtremeValue> extremeValues(long timeFrom, long timeTo) {
 
-        return new ArrayList<>();
+        List<ExtremeValue> extremes = new ArrayList<>();
+        for (Sensor sensor : sensors) {
+            double minValue = Double.MAX_VALUE;
+            double maxValue = Double.MAX_VALUE;
+            for (Measurement measurement : sensor.measurements) {
+                if (measurement.timestamp >= timeFrom && measurement.timestamp <= timeTo) {
+                    minValue = Math.min(minValue, measurement.value);
+                    maxValue = Math.max(maxValue, measurement.value);
+                }
+            }
+            if (minValue != Double.MAX_VALUE || maxValue != Double.MIN_VALUE) {
+                extremes.add(new ExtremeValue(sensor.sensorID, minValue, maxValue));
+            }
+        }
+        return  extremes;
     }
 }
