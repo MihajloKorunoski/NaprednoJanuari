@@ -17,6 +17,14 @@ class Faculty {
     public void printCourseReport(String courseId, String comparatorStr, boolean descending) {
         List<StudentOnCourse> student = studentByCourse.get(courseId);
 
+        Comparator<StudentOnCourse> comparator = getComparator(comparatorStr, descending);
+
+        student.stream()
+                .sorted(comparator)
+                .forEach(System.out::println);
+    }
+
+    private static Comparator<StudentOnCourse> getComparator(String comparatorStr, boolean descending) {
         Comparator<StudentOnCourse> comparator;
 
         if (comparatorStr.equalsIgnoreCase("byid"))
@@ -28,10 +36,7 @@ class Faculty {
 
         if (descending)
             comparator = comparator.reversed();
-
-        student.stream()
-                .sorted(comparator)
-                .forEach(System.out::println);
+        return comparator;
     }
 
     public void printStudentReport(String studentId) {
