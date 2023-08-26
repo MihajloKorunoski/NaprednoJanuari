@@ -16,10 +16,10 @@ class VotersTurnoutApp implements Subscriber {
     public void printStatistics() {
         System.out.printf("%10s %7s %7s %7s\n", "Unit:", "Casted:", "Voters:", "Turnout:");
         for(int unit: castedVotes.keySet()){
-            System.out.println(String.format("%10d %7d %7d %7.2f%%", unit,
+            System.out.printf("%10d %7d %7d %7.2f%%%n", unit,
                     castedVotes.get(unit),
                     registeredVoters.get(unit),
-                    castedVotes.get(unit) * 100.0 / registeredVoters.get(unit)));
+                    castedVotes.get(unit) * 100.0 / registeredVoters.get(unit));
         }
     }
 
