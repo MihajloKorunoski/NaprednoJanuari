@@ -32,11 +32,10 @@ class Bank {
         double provision = t.getProvision();
         double totalDebit = t.getAmount() + provision;
 
-        if (fromAccount.getBalance() < totalDebit)
+        if (fromAccount.getBalance()< totalDebit)
             return false;
 
         fromAccount.setBalance(fromAccount.getBalance() - totalDebit);
-
         if (fromAccount.getId() != toAccount.getId())
             toAccount.setBalance(toAccount.getBalance() + t.getAmount());
         else
@@ -58,16 +57,16 @@ class Bank {
                 .findAny();
     }
 
-    public double totalTransfers() {
-        return 0;
+    public String totalTransfers() {
+        return String.format("%.2f$", totalTransfers);
     }
 
-    public double totalProvision() {
-        return 0;
+    public String totalProvision() {
+        return String.format("%.2f$", totalProvision);
     }
 
-    public static String toString(long amount) {
-        return String.format("%.2f", amount / 100);
+    public static String toString(double amount) {
+        return String.format("%.2f$", amount / 100);
     }
 
     @Override

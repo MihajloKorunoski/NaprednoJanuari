@@ -8,9 +8,9 @@ class Account {
     public long id;
     public double balance;
 
-    public Account(String name, double balance) {
+    public Account(String name, String balance) {
         this.name = name;
-        this.balance = balance;
+        this.balance = Double.parseDouble(balance.replace("$","").trim());
         this.id = new Random().nextLong();
     }
 
@@ -32,7 +32,7 @@ class Account {
 
     @Override
     public String toString() {
-        return String.format("Name: %s\n Balance: %.2f\n", name, balance);
+        return String.format("Name: %s\nBalance: %.2f$\n", name, balance);
     }
 
     @Override
@@ -40,12 +40,11 @@ class Account {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
-        return id == account.id && Double.compare(account.balance, balance) == 0 && Objects.equals(name, account.name);
+        return id == account.id && Objects.equals(name, account.name) && Objects.equals(balance, account.balance);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(name, id, balance);
     }
-
 }
