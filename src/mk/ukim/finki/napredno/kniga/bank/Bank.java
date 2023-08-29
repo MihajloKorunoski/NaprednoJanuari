@@ -66,7 +66,7 @@ class Bank {
     }
 
     public static String toString(double amount) {
-        return String.format("%.2f$", amount / 100);
+        return String.format("%.2f$", amount / 100.);
     }
 
     @Override
