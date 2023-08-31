@@ -66,7 +66,7 @@ class Contact implements Comparable<Contact>{
         return String.format("%s\n%d\n%s\n", name, numbers.size(), numbersString);
     }
 
-    public static Contact valueOf(String s) throws InvalidFormatException {
+    public static Contact valueOf(String s) throws  InvalidFormatException {
         String[] lines = s.split("\n");
 
         if (lines.length < 2)
