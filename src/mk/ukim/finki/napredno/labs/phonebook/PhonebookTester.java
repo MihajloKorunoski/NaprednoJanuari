@@ -71,7 +71,9 @@ public class PhonebookTester {
             System.out.println(e.name);
             exception_thrown = true;
         }
-        catch ( Exception e ) {}
+        catch ( Exception e ) {
+            throw new RuntimeException(e);
+        }
         if ( ! exception_thrown ) System.out.println("Your addContact method doesn't throw InvalidNameException");
         /*
 		exception_thrown = false;
@@ -86,8 +88,8 @@ public class PhonebookTester {
     }
 
     private static void testContact(Scanner jin) throws Exception {
-        boolean exception_thrown = true;
-        String names_to_test[] = { "And\nrej","asd","AAAAAAAAAAAAAAAAAAAAAA","Ð�Ð½Ð´Ñ€ÐµÑ˜A123213","Andrej#","Andrej<3"};
+        boolean exception_thrown;
+        String[] names_to_test = { "And\nrej","asd","AAAAAAAAAAAAAAAAAAAAAA","Ð�Ð½Ð´Ñ€ÐµÑ˜A123213","Andrej#","Andrej<3"};
         for ( String name : names_to_test ) {
             try {
                 new Contact(name);
@@ -97,7 +99,7 @@ public class PhonebookTester {
             }
             if ( ! exception_thrown ) System.out.println("Your Contact constructor doesn't throw an InvalidNameException");
         }
-        String numbers_to_test[] = { "+071718028","number","078asdasdasd","070asdqwe","070a56798","07045678a","123456789","074456798","073456798","079456798" };
+        String[] numbers_to_test = { "+071718028","number","078asdasdasd","070asdqwe","070a56798","07045678a","123456789","074456798","073456798","079456798" };
         for ( String number : numbers_to_test ) {
             try {
                 new Contact("Andrej",number);
@@ -107,7 +109,7 @@ public class PhonebookTester {
             }
             if ( ! exception_thrown ) System.out.println("Your Contact constructor doesn't throw an InvalidNumberException");
         }
-        String nums[] = new String[10];
+        String[] nums = new String[10];
         for ( int i = 0 ; i < nums.length ; ++i ) nums[i] = getRandomLegitNumber();
         try {
             new Contact("Andrej",nums);
@@ -120,13 +122,13 @@ public class PhonebookTester {
         Contact contact = new Contact("Andrej",getRandomLegitNumber(rnd),getRandomLegitNumber(rnd),getRandomLegitNumber(rnd));
         System.out.println(contact.getName());
         System.out.println(contact.getNumbers()); // This line is modified
-        System.out.println(contact.toString());
+        System.out.println(contact);
         contact.addNumber(getRandomLegitNumber(rnd));
         System.out.println(contact.getNumbers()); // This line is modified
-        System.out.println(contact.toString());
+        System.out.println(contact);
         contact.addNumber(getRandomLegitNumber(rnd));
         System.out.println(contact.getNumbers()); // This line is modified
-        System.out.println(contact.toString());
+        System.out.println(contact);
     }
 
     static String[] legit_prefixes = {"070","071","072","075","076","077","078"};
