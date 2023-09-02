@@ -4,8 +4,8 @@ class InvalidNameException extends Exception{
     String name;
     Reason reason;
 
-    public static enum Reason{
-        NOT_UNIQUE, INVALID_CHARACTER,INVALID_SIZE;
+    public enum Reason{
+        NOT_UNIQUE, INVALID_CHARACTER,INVALID_SIZE
     }
 
     public InvalidNameException(String name, Reason reason) {
