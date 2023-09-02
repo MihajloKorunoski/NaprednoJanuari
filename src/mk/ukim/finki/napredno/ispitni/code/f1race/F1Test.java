@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.prvkolokvium.f1race;
+package mk.ukim.finki.napredno.ispitni.code.f1race;
 
 public class F1Test {
 

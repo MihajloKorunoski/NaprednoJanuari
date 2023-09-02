@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.prvkolokvium.f1race;
+package mk.ukim.finki.napredno.ispitni.code.f1race;
 
 import java.io.*;
 import java.util.ArrayList;
