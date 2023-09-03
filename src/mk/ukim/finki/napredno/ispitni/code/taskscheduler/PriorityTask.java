@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.prvkolokvium.taskscheluder;
+package mk.ukim.finki.napredno.ispitni.code.taskscheduler;
 
 class PriorityTask implements Task {
     private final int priority;

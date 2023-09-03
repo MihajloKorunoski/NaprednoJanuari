@@ -1,14 +1,9 @@
-package mk.ukim.finki.napredno.ispitni.prvkolokvium.taskscheluder;
+package mk.ukim.finki.napredno.ispitni.code.taskscheduler;
 
 import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
-/**
- * I Partial exam 2016
- */
+
 public class TaskSchedulerTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -39,8 +34,3 @@ public class TaskSchedulerTest {
         scanner.close();
     }
 }
-
-
-
-
-

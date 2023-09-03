@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.prvkolokvium.taskscheluder;
+package mk.ukim.finki.napredno.ispitni.code.taskscheduler;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 
 class Schedulers {
     public static <T extends Task> TaskScheduler<T> getOrdered() {
-
-        // vashiot kod ovde (annonimous class)
         return new TaskScheduler<T>() {
             @Override
             public List<T> schedule(T[] tasks) {
@@ -17,14 +15,13 @@ class Schedulers {
                         .collect(Collectors.toList());
             }
         };
-
     }
 
     public static <T extends Task> TaskScheduler<T> getFiltered(int order) {
 
-        // vashiot kod ovde (lambda expression)
         return tasks -> Arrays.stream(tasks)
-                .filter(t -> t.getOrder() <= order)
+                .filter(task -> task.getOrder() < order)
                 .collect(Collectors.toList());
+
     }
 }

@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.prvkolokvium.taskscheluder;
+package mk.ukim.finki.napredno.ispitni.code.taskscheduler;
 
 class TimedTask implements Task {
     private final int time;
@@ -18,3 +18,4 @@ class TimedTask implements Task {
         return time;
     }
 }
+
