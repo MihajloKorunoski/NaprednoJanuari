@@ -1,4 +1,4 @@
-package mk.ukim.finki.napredno.ispitni.prvkolokvium.generickievaluator;
+package mk.ukim.finki.napredno.ispitni.code.genericevaluator;
 
 import java.util.Arrays;
 import java.util.Scanner;
